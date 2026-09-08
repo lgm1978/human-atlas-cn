@@ -1,0 +1,17 @@
+Human Atlas 中文 PWA README 更新包
+
+本次只更新项目说明，不改程序代码。
+
+更新内容：
+1. README.md 改为中文优先的项目介绍。
+2. 明确说明这是个人自学项目。
+3. 明确上游来源：
+   https://github.com/ashemag/human-atlas
+   https://github.com/ashemag/human-atlas/tree/main/app
+4. 说明目标是中文解剖学习和中英术语对照。
+5. 保留 MIT / BodyParts3D CC BY 4.0 许可与署名说明。
+6. 明确仅供学习，不用于诊断、手术导航或临床决策。
+
+使用方法：
+把 README.md 和 README_CN.md 覆盖到本地 human-atlas-cn 仓库根目录，
+然后 GitHub Desktop -> Commit -> Push origin。

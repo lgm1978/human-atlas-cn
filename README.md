@@ -1,64 +1,90 @@
-# Human Atlas
+# Human Atlas 中文 PWA
 
-An interactive 3D anatomy explorer built with React, Three.js, and shadcn/ui. Take the BodyParts3D adult male reference apart into **2,234 individually selectable meshes**, explore **15 anatomical systems**, and search **3,432 named concepts**.
+这是一个**个人自学项目**，主要用于学习人体解剖、熟悉中英文解剖术语，并练习将开源 Web 项目改造成中文 PWA。
 
-**[Explore the live demo](https://human-atlas-seven.vercel.app)**
+本项目基于开源项目 **[ashemag/human-atlas](https://github.com/ashemag/human-atlas)** 进行学习性中文化与 PWA 适配，界面改造主要围绕原项目的 [`app`](https://github.com/ashemag/human-atlas/tree/main/app) 等前端代码展开。  
+原项目的 3D 人体解剖浏览、交互逻辑和 BodyParts3D 数据体系均归原项目及相应数据来源所有。
 
-## Explore
+> **用途说明**
+>
+> - 仅用于个人学习、解剖教学参考和开源项目实践。
+> - 目标是尝试建立一个更方便中文用户使用的中英双语 3D 解剖学习界面。
+> - 目前中文术语仍在逐步校订，不应视为正式医学术语数据库。
+> - **不用于诊断、手术导航或任何临床决策。**
 
-- Orbit, zoom, and select structures directly on the body.
-- Toggle individual systems or use skeleton and organ presets.
-- Move from assembled anatomy to a spaced inventory of every visible piece.
-- Search anatomical names and source identifiers.
-- Isolate a selected structure and read its details.
-- Use compact controls and detail panels on mobile.
+## 在线版本
 
-## Run locally
+GitHub Pages：
 
-Requires Node.js 22.13 or newer. No API keys or accounts are needed.
+**https://lgm1978.github.io/human-atlas-cn/**
 
-```sh
+## 当前中文化内容
+
+- 主要操作界面中文化
+- 15 个解剖系统的中文名称与说明
+- 部分常见骨骼、肌肉、器官、血管和神经结构增加中英双语名称
+- 支持中文、英文及 FMA 编号搜索框架
+- 未人工校对的细小结构暂时保留英文名称
+- 增加 PWA 支持，可在兼容浏览器中添加到主屏幕
+- 保留桌面端和移动端 3D 旋转、缩放、选择、隐藏、分离显示等原有交互
+
+## 数据与上游项目
+
+### 上游应用
+
+- Human Atlas  
+  https://github.com/ashemag/human-atlas
+- 原项目 `app` 目录  
+  https://github.com/ashemag/human-atlas/tree/main/app
+- 原应用代码许可：MIT License
+
+### 解剖数据
+
+3D 解剖数据来自 **BodyParts3D 4.0** 成人男性参考解剖。
+
+- 数据许可：CC BY 4.0
+- 详细数据来源和署名见 [`public/ATTRIBUTION.md`](public/ATTRIBUTION.md)
+
+当前数据包含大量独立 3D 网格与 FMA 解剖概念。该模型是参考解剖模型，不代表所有个体差异。
+
+## 关于中文术语
+
+这是一个逐步完善的学习版本。
+
+我不准备把所有英文结构一次性机器直译后直接作为“标准中文名称”。现阶段优先处理常见结构；对于尚未人工核对的细小结构，保留英文名和 FMA 编号，后续再逐批校订。
+
+理想显示方式是：
+
+**中文名称 / English name / FMA ID**
+
+这样既方便中文解剖学习，也便于阅读英文医学文献时对照。
+
+## 本地运行
+
+需要 Node.js 22.13 或更高版本：
+
+```bash
 npm ci
 npm run dev
 ```
 
-Open http://localhost:3016. To build the static site, run `npm run build`; the output is in `dist/`.
+构建静态版本：
 
-## Validate
-
-```sh
-npm run check
-node scripts/validate-atlas.mjs
-node scripts/validate-interactions.mjs
+```bash
 npm run build
 ```
 
-Validation covers mesh buffers, names and concept membership, nonoverlapping exploded layouts at desktop and mobile aspect ratios, search and inspection contracts, and tap-versus-drag handling. Browser interaction checks have exercised selection, system controls, search, isolation, rotation, and 390×844, 320×568, and 844×390 layouts. Phone controls stay clear of the exploded inventory, and isolated structures fit the space above or beside the detail panel. Physical-device performance and real multitouch hardware have not been tested.
+输出目录为：
 
-## Anatomy data
+```text
+dist/
+```
 
-The current viewer uses **BodyParts3D 4.0**, an adult male reference anatomy, licensed **CC BY 4.0**. It does not represent every human structure or variation. Individual source meshes are distinct from named concepts, which may group multiple meshes. Descriptions distinguish general system context from individual organ explanations.
+## 许可与声明
 
-Geometry is simplified for browser performance while retaining every source mesh. The packaged model contains 2,288,268 triangles and downloads approximately 33 MB of compressed geometry. Full credits, source links, and adaptation details are in [ATTRIBUTION.md](public/ATTRIBUTION.md).
+- 原 Human Atlas 应用代码按 MIT License 使用并保留原许可。
+- BodyParts3D 解剖数据按 CC BY 4.0 使用并保留署名。
+- 第三方依赖遵循各自许可证。
+- 本仓库中的中文界面、术语整理和 PWA 适配属于个人学习性修改。
 
-This is an educational explorer, not a diagnostic or surgical tool.
-
-## How it works
-
-Geometry is merged into batches. Per-structure GPU textures control translation, visibility, and selection, while component geometry supports accurate picking. Exploded layouts pack only the visible pieces. Rendering updates when the scene changes; orbit controls remain responsive without thousands of separate draw calls.
-
-The optional WebMCP tools expose anatomy search and inspection in compatible browsers. The visible interface works without them.
-
-## Rebuilding geometry
-
-The repository includes browser-ready geometry. Rebuilding it is optional: obtain the official BodyParts3D OBJ archive and English metadata tables, prepare the joined concepts and display-system mappings, run `scripts/convert-anatomy.py`, then `node scripts/optimize-anatomy.mjs` and `node scripts/compress-models.mjs`. Simplification uses a 0.2% relative error limit per structure.
-
-## Deploy
-
-Import this repository into Vercel as a Vite project. The included `vercel.json` configures `npm ci`, `npm run build`, and the `dist` output directory. It can also be served by a static host.
-
-## License
-
-Original application code is released under the [MIT License](LICENSE). **The anatomy data has its own CC BY 4.0 license**; preserve the attribution when redistributing it. Third-party dependencies retain their respective licenses.
-
-Issues and pull requests are welcome. Please include reproduction steps and browser/device details for interaction problems.
+如果你希望使用、fork 或继续修改这个项目，请同时保留原项目和 BodyParts3D 的许可与署名信息。
