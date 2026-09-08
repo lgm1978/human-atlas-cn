@@ -91,3 +91,14 @@ h1 .edition{font-family:inherit;font-weight:500;font-size:10px;letter-spacing:.0
 :root{font-family:"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
 .system-label{display:flex;flex-direction:column;min-width:0;line-height:1.15;gap:2px}.system-label>span{overflow:hidden;text-overflow:ellipsis}.system-label small{font-size:9px;color:#9aa3ab;font-weight:400;letter-spacing:.01em}.search-result-text{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1}.search-result-text small,.structure-en,.member-list small{display:block;font-size:10px;color:#8a96a1;font-weight:400;text-transform:none;line-height:1.35}.search-result-name{text-transform:none}.structure-title{text-transform:none}.structure-en{margin-top:-4px;font-size:11px;letter-spacing:.01em}.member-list button span b{display:block;font-weight:500}.identity h1{white-space:nowrap}.identity .eyebrow{letter-spacing:.1em}.about-copy{word-break:break-word}
 @media(max-width:767px){.system-label small{font-size:8px}.identity h1{font-size:24px}.identity-meta{max-width:220px;line-height:1.45}}
+
+.muscle-study-card{border:1px solid #263b4818;background:#f7fafaf2;border-radius:12px;padding:14px 14px 12px;display:flex;flex-direction:column;gap:12px}
+.muscle-study-heading{display:flex;justify-content:space-between;align-items:baseline;gap:10px;border-bottom:1px solid #263b4812;padding-bottom:9px}
+.muscle-study-heading b{font-size:13px;font-weight:600;color:#304553}
+.muscle-study-heading span{font-size:9px;color:#8a96a1;white-space:nowrap}
+.muscle-study-card dl{margin:0;display:flex;flex-direction:column;gap:10px}
+.muscle-study-card dl>div{display:grid;grid-template-columns:58px 1fr;gap:10px;align-items:start}
+.muscle-study-card dt{font-size:11px;color:#70808c;font-weight:500}
+.muscle-study-card dd{margin:0;font-size:12px;line-height:1.65;color:#40515e}
+.muscle-study-note{margin:0!important;padding-top:9px;border-top:1px dashed #263b4818;font-size:9px!important;line-height:1.55!important;color:#8a96a1!important}
+@media(max-width:767px){.muscle-study-card{padding:12px}.muscle-study-card dl>div{grid-template-columns:54px 1fr}.muscle-study-card dd{font-size:11px}}
