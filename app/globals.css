@@ -102,3 +102,15 @@ h1 .edition{font-family:inherit;font-weight:500;font-size:10px;letter-spacing:.0
 .muscle-study-card dd{margin:0;font-size:12px;line-height:1.65;color:#40515e}
 .muscle-study-note{margin:0!important;padding-top:9px;border-top:1px dashed #263b4818;font-size:9px!important;line-height:1.55!important;color:#8a96a1!important}
 @media(max-width:767px){.muscle-study-card{padding:12px}.muscle-study-card dl>div{grid-template-columns:54px 1fr}.muscle-study-card dd{font-size:11px}}
+.acu-dot-mini{display:inline-block;width:9px;height:9px;border-radius:50%;background:#c93f3a;box-shadow:0 0 0 3px #c93f3a18;flex:0 0 auto}
+.acupuncture-legend{position:absolute;left:50%;top:86px;transform:translateX(-50%);z-index:20;display:flex;align-items:center;gap:7px;padding:7px 12px;border-radius:999px;font-size:10px;color:#4b5d68;pointer-events:none}
+.acupuncture-legend b{font-weight:650;color:#263b48}
+.acupuncture-legend>span:last-child{color:#8997a0;margin-left:3px}
+.acupoint-sheet .acu-accent{background:#c93f3a!important}
+.acupoint-code{font-size:.56em;font-weight:600;color:#c93f3a;vertical-align:middle;margin-left:6px}
+.acupoint-study-card{border:1px solid #c93f3a22;background:#fff8f7d9;border-radius:12px;padding:14px}
+.acupoint-study-card dl{margin:0;display:flex;flex-direction:column;gap:12px}
+.acupoint-study-card dl>div{display:grid;grid-template-columns:72px 1fr;gap:10px}
+.acupoint-study-card dt{font-size:11px;color:#9b625f;font-weight:600}
+.acupoint-study-card dd{margin:0;font-size:12px;line-height:1.7;color:#40515e}
+@media(max-width:767px){.acupuncture-legend{top:112px;max-width:calc(100vw - 28px);white-space:nowrap}.acupuncture-legend>span:last-child{display:none}.acupoint-study-card dl>div{grid-template-columns:64px 1fr}.acupoint-study-card dd{font-size:11px}}

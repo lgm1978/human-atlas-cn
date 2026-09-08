@@ -1,50 +1,48 @@
-Human Atlas 中文 PWA V1.1｜中文术语增强版更新包
+Human Atlas 中文 PWA V1.2｜一键合并更新包
 
-基于你当前已部署成功的 V1.0.2 更新。
+这是从你当前已能正常运行的 V1.0.2 直接升级到 V1.2 的合并包。
+不需要先单独安装 V1.1。
 
-V1.1 新增：
+包含：
+【V1.1 中文术语增强】
 - 53 个骨伤科常见肌肉学习条目
-- 点击已收录肌肉后，右侧详情增加“肌肉学习卡”
-- 学习卡包含：
-  1. 起点
-  2. 止点
-  3. 主要作用
-  4. 神经支配
-- 保留中文名称 / English name / FMA 编号
-- 新增一批肩颈、肩袖、臀髋、大腿、膝周、小腿足踝常见肌肉中文名
-- README 明确：个人自学项目，基于 ashemag/human-atlas 中文化学习
-- PWA 缓存版本升级到 v1.1
+- 起点、止点、主要作用、神经支配
+- 更多常见肌肉中文名称
 
-说明：
-肌肉起止点、作用、神经支配是中文学习版自行整理的学习信息，
-不是 BodyParts3D 原始数据字段。仅供自学和解剖复习，
-不用于诊断、手术导航或临床决策。
+【V1.2 穴位试验层】
+- 22 个常用穴名
+- 41 个三维穴位点（双侧穴分别显示）
+- 顶部“穴位试验”开关
+- 点击穴位出现学习卡：
+  穴名 / 代码 / 拼音 / 所属经脉 / 简要定位 / 局部解剖提示
+- 3D穴位点会随人体旋转、缩放
+- 本版暂不画经络线，避免简单直线穿过人体
+
+重要：
+穴位点坐标是针对当前 BodyParts3D 模型重新人工近似标定，
+不是标准临床三维坐标，也没有复制 SMPLify-M 或 acu-master 的坐标数据。
+仅用于个人自学和三维解剖学习。
 
 替换方法：
-1. 解压本更新包。
-2. 将 app、public、README.md、README_CN.md 按原目录结构复制到本地 human-atlas-cn 仓库根目录。
-3. Windows 提示时选择“替换目标中的文件”。
-4. 注意：app/muscle-study-zh.ts 是 V1.1 新增文件，不是覆盖旧文件。
-5. 打开 GitHub Desktop。
-6. Summary 建议填：
-   Human Atlas 中文 PWA V1.1 muscle study cards
-7. Commit to main。
-8. Push origin。
-9. 等 GitHub Actions 的 build 和 deploy 全部变成绿色。
+1. 解压本包
+2. 把 app、public、README.md、README_CN.md
+   按原目录结构复制到本地 human-atlas-cn 仓库根目录
+3. Windows 提示时选择“替换目标中的文件”
+4. 两个新增文件：
+   app/muscle-study-zh.ts
+   app/acupuncture-study-zh.ts
+5. GitHub Desktop：
+   Summary: Human Atlas 中文 PWA V1.2 study layers
+   Commit to main
+   Push origin
+6. 等 GitHub Actions build + deploy 变绿
 
-正式网址仍然是：
-https://lgm1978.github.io/human-atlas-cn/
-
-首次测试可用：
-https://lgm1978.github.io/human-atlas-cn/?v=1.1
+测试地址：
+https://lgm1978.github.io/human-atlas-cn/?v=1.2
 
 推荐测试：
-- 搜索“缝匠肌”或 sartorius
-- 点选后右侧应出现“肌肉学习卡”
-- 应显示：髂前上棘 → 胫骨近端内侧面（鹅足）、作用、股神经等内容
-- 再测试冈上肌、三角肌、臀中肌、胫骨前肌等
+- 先搜“缝匠肌”，确认右侧出现肌肉学习卡
+- 再点顶部“穴位试验”
+- 点击大椎 GV14、肩井 GB21、足三里 ST36、阳陵泉 GB34、委中 BL40、昆仑 BL60
 
-如果浏览器仍显示旧页面：
-- 等 GitHub Actions 部署完成
-- 强制刷新，或先打开 ?v=1.1 测试地址
-- 已安装 PWA 时可完全关闭后重新打开
+如果 Actions 出现红叉，把错误截图发回本对话继续修。
