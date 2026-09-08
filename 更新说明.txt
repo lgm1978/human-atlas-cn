@@ -1,17 +1,42 @@
-Human Atlas 中文 PWA README 更新包
+Human Atlas 中文 PWA V1.0.2｜GitHub Pages 运行修复
 
-本次只更新项目说明，不改程序代码。
+这次修复一个明确问题：
+之前的 Vite 配置没有显式设置 GitHub Pages 项目子路径 base。
+仓库部署地址是：
+https://lgm1978.github.io/human-atlas-cn/
 
-更新内容：
-1. README.md 改为中文优先的项目介绍。
-2. 明确说明这是个人自学项目。
-3. 明确上游来源：
+但 Vite 默认 base 是 /，构建虽然可以成功，运行时 JS、模型和 Service Worker 的路径可能指向域名根目录，
+在 GitHub project Pages 上会出现加载异常、空白、缓存旧页面或表现不一致。
+
+本次修改：
+1. vite.config.ts
+   增加 base: '/human-atlas-cn/'
+2. web/index.html
+   main.tsx 改成相对入口 ./main.tsx
+3. public/service-worker.js
+   缓存名升级到 v1-0-2，强制淘汰旧壳缓存
+4. app/scene.tsx
+   把剩余几个用户可见英文错误提示改成中文
+5. README.md / README_CN.md
+   明确这是个人自学项目，基于：
    https://github.com/ashemag/human-atlas
    https://github.com/ashemag/human-atlas/tree/main/app
-4. 说明目标是中文解剖学习和中英术语对照。
-5. 保留 MIT / BodyParts3D CC BY 4.0 许可与署名说明。
-6. 明确仅供学习，不用于诊断、手术导航或临床决策。
+   主要用于中文解剖学习和中英术语对照
 
-使用方法：
-把 README.md 和 README_CN.md 覆盖到本地 human-atlas-cn 仓库根目录，
-然后 GitHub Desktop -> Commit -> Push origin。
+更新方法：
+- 解压本包
+- 按原目录结构覆盖本地 human-atlas-cn 仓库中的同名文件
+- GitHub Desktop 应显示若干 changed files
+- Summary 建议：Fix GitHub Pages base path and Chinese README
+- Commit to main
+- Push origin
+- 等 GitHub Actions 重新 build + deploy 变绿
+
+更新后建议先用无痕窗口打开：
+https://lgm1978.github.io/human-atlas-cn/?v=1.0.2
+
+页面左上应看到“人体解剖图谱”，系统列表应出现“骨骼系统、肌肉系统”等中文。
+确认后，正式网址仍然是：
+https://lgm1978.github.io/human-atlas-cn/
+
+首次打开仍可能较慢，因为原项目打包的 3D 几何数据约 33 MB 压缩量。
